@@ -1,0 +1,18 @@
+
+> swasth-samaj@0.1.0 dev
+> next dev -p 3000
+
+▲ Next.js 16.2.1 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://10.0.12.119:3000
+- Environments: .env
+✓ Ready in 336ms
+⨯ Another next dev server is already running.
+
+- Local:        http://localhost:3001
+- PID:          99823
+- Dir:          /Users/utsavkumar/Desktop/antigravity/swasth-samaj
+- Log:          .next/dev/logs/next-development.log
+
+Run kill 99823 to stop it.
+[?25h

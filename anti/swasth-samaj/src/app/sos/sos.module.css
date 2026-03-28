@@ -1,0 +1,165 @@
+.header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.title {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  color: var(--color-text-muted);
+  font-size: 1.1rem;
+}
+
+.sosCard {
+  background: #fee2e2;
+  border: 2px dashed #f87171;
+  padding: 3rem;
+  border-radius: var(--radius-lg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 4rem;
+  text-align: center;
+}
+
+.postBtn {
+  background: #dc2626;
+  color: white;
+  border: none;
+  padding: 1.25rem 2.5rem;
+  border-radius: 50px;
+  font-weight: 800;
+  font-size: 1.1rem;
+  box-shadow: 0 10px 25px rgba(220, 38, 38, 0.3);
+  cursor: pointer;
+}
+
+.filterSection {
+  margin-bottom: 3rem;
+}
+
+.groupGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.groupBtn {
+  background: white;
+  border: 1px solid rgba(0,0,0,0.1);
+  padding: 0.75rem 1.5rem;
+  border-radius: 50px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.groupActive {
+  background: #dc2626;
+  color: white;
+  border-color: #dc2626;
+  box-shadow: 0 4px 15px rgba(220, 38, 38, 0.2);
+}
+
+.donorGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+.donorCard {
+  background: white;
+  padding: 2rem;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-soft);
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  border: 1px solid rgba(0,0,0,0.03);
+  transition: all 0.2s;
+}
+
+.donorCard:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+}
+
+.donorAvatar {
+  width: 60px;
+  height: 60px;
+  background: var(--color-cream);
+  color: var(--color-saffron-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-weight: 800;
+  font-size: 1.5rem;
+}
+
+.donorInfo {
+  flex: 1;
+}
+
+.donorNameRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.2rem;
+}
+
+.donorName {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.groupBadge {
+  background: #dc2626;
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+}
+
+.donorLoc {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  font-weight: 600;
+  margin-bottom: 0.1rem;
+}
+
+.lastDonated {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+}
+
+.reqBtn {
+  background: var(--color-cream);
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: var(--radius-sm);
+  font-weight: 700;
+  font-size: 0.8rem;
+  color: var(--color-heading);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.reqBtn:hover {
+  background: #e2e8f0;
+}
+
+.emptyState {
+  padding: 4rem;
+  text-align: center;
+  background: var(--color-cream);
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  color: var(--color-text-muted);
+}
