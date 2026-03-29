@@ -3,6 +3,7 @@ import Link from "next/link";
 import styles from "./page.module.css";
 import { SpotlightCard } from "@/components/ui/SpotlightCard";
 import { MOCK_DOCTORS, MOCK_QUERIES } from "@/lib/mockData";
+import SwasthChatbox from "@/components/ui/SwasthChatbox";
 
 export default function Home() {
   const featuredDoctors = MOCK_DOCTORS.slice(0, 4);
@@ -164,6 +165,7 @@ export default function Home() {
 
       {/* Floating Buttons */}
       <button className={styles.fabHelp}>💬 Help</button>
+      <SwasthChatbox />
     </div>
   );
 }

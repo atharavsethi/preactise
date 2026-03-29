@@ -4,44 +4,40 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import styles from "./page.module.css";
-import { useMockStore, UserRole } from "@/lib/mockStore";
+import { signIn } from "next-auth/react";
+import { UserRole } from "@/lib/mockStore";
 
 export default function Login() {
   const router = useRouter();
-  const { login } = useMockStore();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [role, setRole] = useState<UserRole>("PATIENT");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
     setError("");
 
-    // Simulated mock login
-    setTimeout(() => {
-      let name = "John Doe";
-      let isVerified = true;
-
-      if (role === 'DOCTOR') name = "Dr. Ananya Sharma";
-      if (role === 'STUDENT') {
-        name = "Rahul Varma";
-        isVerified = false;
-      }
-      if (role === 'ADMIN') name = "Admin User";
-
-      login({ 
-        name, 
-        role, 
-        isVerified,
-        avatar: role === 'PATIENT' ? "https://api.dicebear.com/7.x/avataaars/svg?seed=John" : undefined 
+    try {
+      const res = await signIn("credentials", {
+        redirect: false,
+        email,
+        password,
       });
 
-      router.push("/");
+      if (res?.error) {
+        setError("Invalid email or password");
+        setLoading(false);
+      } else {
+        router.push("/");
+        router.refresh();
+      }
+    } catch (err) {
+      setError("An unexpected error occurred.");
       setLoading(false);
-    }, 1000);
+    }
   };
 
   return (

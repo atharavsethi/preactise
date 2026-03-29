@@ -84,7 +84,9 @@ export const CardNav = () => {
 
         {navGroups.map(group => (
           <div key={group.name} className={styles.navItem}>
-            {group.name} ▾
+            <Link href={group.path} style={{ textDecoration: 'none', color: 'inherit' }}>
+              {group.name} ▾
+            </Link>
             <div className={styles.dropdown}>
               {group.items.map(item => (
                 <Link key={item.name} href={item.path} className={styles.dropdownItem}>

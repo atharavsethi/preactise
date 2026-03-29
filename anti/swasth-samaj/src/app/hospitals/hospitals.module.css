@@ -1,199 +1,236 @@
+.pageContainer {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 80px); /* Adjust based on navbar height */
+  overflow: hidden;
+  background-color: #f8fafc;
+}
+
 .header {
-  text-align: center;
-  margin-bottom: 4rem;
+  padding: 1.5rem 2rem;
+  background: white;
+  border-bottom: 1px solid #e2e8f0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10;
 }
 
 .title {
-  font-size: 2.8rem;
-  margin-bottom: 0.5rem;
-}
-
-.subtitle {
-  color: var(--color-text-muted);
-  font-size: 1.1rem;
-}
-
-.searchBox {
-  display: flex;
-  align-items: center;
-  background: white;
-  padding: 0.75rem 1.5rem;
-  border-radius: 50px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-  max-width: 600px;
-  margin: 3rem auto 0;
-  border: 1px solid rgba(0,0,0,0.05);
-}
-
-.searchIcon {
   font-size: 1.5rem;
-  margin-right: 1rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0;
 }
 
-.searchBox input {
-  flex: 1;
+.headerActions {
+  display: flex;
+  gap: 1rem;
+}
+
+.nearestBtn {
+  background: #2563eb;
+  color: white;
   border: none;
-  font-size: 1.1rem;
-  color: var(--color-heading);
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
 }
 
-.searchBox input:focus {
-  outline: none;
+.nearestBtn:hover {
+  background: #1d4ed8;
 }
 
-.hospitalGrid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
+.splitLayout {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
 }
 
-@media (max-width: 900px) {
-  .hospitalGrid { grid-template-columns: 1fr; }
+.listPanel {
+  flex: 0 0 400px;
+  overflow-y: auto;
+  background: white;
+  border-right: 1px solid #e2e8f0;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.mapPanel {
+  flex: 1;
+  position: relative;
+  background: #e2e8f0;
+}
+
+.mapContainer {
+  width: 100%;
+  height: 100%;
 }
 
 .hospitalCard {
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 1rem;
+  cursor: pointer;
+  transition: all 0.2s;
   background: white;
-  padding: 2.5rem;
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-soft);
-  transition: all 0.3s ease;
-  border: 1px solid rgba(0,0,0,0.02);
 }
 
 .hospitalCard:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--shadow-hover);
+  border-color: #3b82f6;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
 
-.hCardHeader {
+.hospitalCard.active {
+  border-color: #2563eb;
+  border-width: 2px;
+  background: #eff6ff;
+}
+
+.cardHeader {
   display: flex;
-  gap: 1.5rem;
+  justify-content: space-between;
   align-items: flex-start;
-  margin-bottom: 2rem;
-}
-
-.hIcon {
-  font-size: 2rem;
-  background: var(--color-cream);
-  width: 60px;
-  height: 60px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 12px;
-}
-
-.hMain {
-  flex: 1;
+  margin-bottom: 0.5rem;
 }
 
 .hName {
-  font-size: 1.4rem;
-  margin-bottom: 0.2rem;
-}
-
-.hLoc {
-  font-size: 0.9rem;
-  color: var(--color-text-muted);
+  font-size: 1.1rem;
   font-weight: 600;
+  color: #1e293b;
+  margin: 0;
 }
 
-.hRating {
-  font-weight: 800;
-  color: var(--color-saffron-dark);
-  font-size: 0.95rem;
-}
-
-.hTags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-bottom: 2rem;
-}
-
-.pill {
+.distance {
+  font-size: 0.85rem;
+  color: #64748b;
   background: #f1f5f9;
-  color: #475569;
-  padding: 0.3rem 0.8rem;
-  border-radius: 50px;
-  font-size: 0.75rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+
+.hAddress {
+  font-size: 0.9rem;
+  color: #64748b;
+  margin: 0 0 0.5rem 0;
 }
 
 .hStats {
   display: flex;
-  gap: 2rem;
-  margin-bottom: 2.5rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid rgba(0,0,0,0.05);
+  gap: 1rem;
+  margin-top: 0.75rem;
+  flex-wrap: wrap;
 }
 
-.hStat {
+.statBadge {
+  font-size: 0.75rem;
+  background: #e0e7ff;
+  color: #4338ca;
+  padding: 0.2rem 0.6rem;
+  border-radius: 12px;
+  font-weight: 500;
+}
+
+.ratingSection {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #f1f5f9;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ratingDisplay {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-weight: 600;
+  color: #fbbf24;
+}
+
+.ratingCount {
+  font-size: 0.8rem;
+  color: #94a3b8;
+  font-weight: normal;
+}
+
+.rateActions {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.starBtn {
+  background: none;
+  border: none;
+  font-size: 1.25rem;
+  cursor: pointer;
+  padding: 0;
+  color: #cbd5e1;
+  transition: color 0.1s;
+}
+
+.starBtn:hover, .starBtn.active {
+  color: #fbbf24;
+}
+
+.loadingState, .errorState {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  color: #64748b;
+  text-align: center;
+  padding: 2rem;
 }
 
-.hStatVal {
-  font-size: 1.4rem;
-  font-weight: 800;
-  color: var(--color-heading);
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid #f3f3f3;
+  border-top: 3px solid #3b82f6;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 1rem;
 }
 
-.hStatLbl {
-  font-size: 0.75rem;
-  font-weight: 700;
-  color: var(--color-text-muted);
-  text-transform: uppercase;
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
-.emergencyOn {
-  color: var(--color-green);
-  font-weight: 800;
-  font-size: 1rem;
-}
-
-.emergencyOff {
-  color: #ef4444;
-  font-weight: 800;
-  font-size: 1rem;
-}
-
-.hActions {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-}
-
-.dirBtn {
-  background: var(--color-cream);
-  border: none;
-  padding: 1rem;
-  border-radius: var(--radius-md);
-  font-weight: 700;
-  font-size: 0.85rem;
-  color: var(--color-heading);
-  cursor: pointer;
-  transition: all 0.2s;
-}
-
-.dirBtn:hover {
+.retryBtn {
+  margin-top: 1rem;
   background: #e2e8f0;
-}
-
-.contactBtn {
-  background: var(--color-green);
-  color: white;
+  color: #475569;
   border: none;
-  padding: 1rem;
-  border-radius: var(--radius-md);
-  font-weight: 700;
-  font-size: 0.85rem;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
   cursor: pointer;
-  transition: all 0.2s;
 }
 
-.contactBtn:hover {
-  background: var(--color-green-dark);
+.retryBtn:hover {
+  background: #cbd5e1;
+}
+
+@media (max-width: 768px) {
+  .splitLayout {
+    flex-direction: column;
+  }
+  
+  .listPanel {
+    flex: 1;
+    border-right: none;
+    border-bottom: 1px solid #e2e8f0;
+  }
+  
+  .mapPanel {
+    flex: 1;
+    min-height: 300px;
+  }
 }

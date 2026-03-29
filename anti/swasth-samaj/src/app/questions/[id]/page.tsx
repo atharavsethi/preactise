@@ -7,7 +7,7 @@ import AnswerForm from "@/components/forum/AnswerForm";
 import UpvoteButton from "@/components/ui/UpvoteButton";
 import { DJANGO_API_URL } from "@/lib/constants";
 
-export default async function QuestionDetailPage({ params }: { params: { id: string } }) {
+export default async function QuestionDetailPage({ params }: { params: Promise<{ id: string }> }) {
   const session = await getServerSession(authOptions);
   
   const unwrappedParams = await params;
@@ -99,7 +99,7 @@ export default async function QuestionDetailPage({ params }: { params: { id: str
             
             <div className={styles.answerFooter}>
               <span>Answered on {new Date(ans.created_at).toLocaleDateString()}</span>
-              {session?.user?.role === 'USER' && (
+              {(session?.user as any)?.role === 'USER' && (
                  <button className="btn btn-outline" style={{ padding: '0.4rem 0.8rem', fontSize: '0.85rem', borderRadius: '20px' }}>
                    📞 Consult Privately
                  </button>
